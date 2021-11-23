@@ -6,16 +6,30 @@
           <h3>Seleziona la rata mensile</h3>
         </b-col>
       </b-row>
-      <b-col cols="6">
-        <b-form-spinbutton
-          class="spin-button"
-          v-model="value"
-          placeholder="value"
-          min="100"
-          max="1000"
-        >
-        </b-form-spinbutton>
-      </b-col>
+      <b-row align-h="center">
+        <b-col cols="1" @click="value--">
+          <b-icon-arrow-down-left-circle
+            class="arrow-icon"
+            font-scale="2.5"
+            shift-v="-10"
+          ></b-icon-arrow-down-left-circle>
+        </b-col>
+        <b-col cols="6">
+          <input
+            class="spin-button"
+            type="text"
+            @change="checkIfNumber"
+            v-model="value"
+          />
+        </b-col>
+        <b-col cols="1" @click="value++">
+          <b-icon-arrow-up-right-circle
+            class="arrow-icon"
+            font-scale="2.5"
+            shift-v="-10"
+          ></b-icon-arrow-up-right-circle>
+        </b-col>
+      </b-row>
     </b-row>
     <b-row align-h="center">
       <b-col cols="auto" v-if="value < 300">
@@ -58,60 +72,35 @@
 </template>
 
 <script>
-import { BCol, BRow, BCard, BFormInput, BFormSpinbutton } from "bootstrap-vue";
+import {
+  BCol,
+  BRow,
+  BCard,
+  BFormInput,
+  BIconArrowDownLeftCircle,
+  BIconArrowUpRightCircle,
+} from "bootstrap-vue";
 export default {
   components: {
     BCol,
     BRow,
     BCard,
     BFormInput,
-    BFormSpinbutton,
+    BIconArrowDownLeftCircle,
+    BIconArrowUpRightCircle,
   },
   data() {
     return {
       value: 0,
     };
   },
+  methods: {
+    checkIfNumber() {
+      if (!Number(this.value)) {
+        this.value = 0;
+      }
+    },
+  },
 };
 </script>
 
-<style scoped>
-#range-1 {
-  width: 100%;
-}
-
-.card {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 1rem;
-  border: none;
-}
-
-.spin-button {
-  width: 100%;
-  border: none;
-  border-bottom: 1px solid rgb(204, 204, 204);
-  border-radius: 0;
-}
-
-.nav-links {
-  margin-top: 1rem;
-}
-
-.link {
-  cursor: pointer;
-  color: black;
-  text-decoration: none;
-}
-
-.link-cta {
-  padding: 0.5rem 1rem;
-  color: white;
-  background: #00b97f;
-  border-radius: 500px;
-}
-
-.link-cta:hover {
-  background: #ea862c;
-}
-</style>

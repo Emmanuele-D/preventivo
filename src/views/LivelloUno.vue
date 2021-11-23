@@ -36,36 +36,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.card {
-  border-radius: 15px;
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 1rem;
-  border: none;
-}
-
-.cards {
-  box-shadow: 10px 8px 15px -16px #bed1cb;
-  -webkit-box-shadow: 10px 8px 15px -16px #bed1cb;
-  -moz-box-shadow: 10px 8px 15px -16px #bed1cb;
-}
-
-.link {
-  cursor: pointer;
-  color: black;
-  text-decoration: none;
-}
-
-.link-cta {
-  padding: 0.5rem 1rem;
-  color: white;
-  background: #00b97f;
-  border-radius: 500px;
-}
-
-.link-cta:hover {
-  background: #ea862c;
-}
-</style>
