@@ -30,7 +30,7 @@
         </ul>
         <b-container>
           <b-row align-h="center">
-            <b-col class="pt-3" cols="1">
+            <b-col class="pt-3" cols="auto">
               <b-icon-chevron-double-down
                 @click="focusQuestions"
               ></b-icon-chevron-double-down>
@@ -84,5 +84,13 @@ export default {
 
 .description ul {
   margin: 0 2rem;
+}
+
+#router-view {
+  margin-top: 1.5rem;
+}
+
+.pt-3:hover {
+  cursor: pointer;
 }
 </style>

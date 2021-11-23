@@ -1,37 +1,36 @@
 <template>
-  <b-container>
-    <b-card>
+  <b-card>
+    <b-row align-h="center">
       <b-row align-h="center">
-        <b-row align-h="center">
-          <b-col cols="auto">
-            <h3>Seleziona il valore dell'immobile</h3>
-          </b-col>
-        </b-row>
-        <b-col cols="6">
-          <b-form-spinbutton
-            class="spin-button"
-            v-model="value"
-            placeholder="value"
-            min="40000"
-            max="500000"
-          >
-          </b-form-spinbutton>
+        <b-col cols="auto">
+          <h3>Seleziona il valore dell'immobile</h3>
         </b-col>
       </b-row>
+      <b-col cols="6">
+        <b-form-spinbutton
+          class="spin-button"
+          v-model="value"
+          placeholder="value"
+          min="40000"
+          max="500000"
+        >
+        </b-form-spinbutton>
+      </b-col>
+    </b-row>
+    <b-row align-h="center">
+      <b-col cols="auto" v-if="value < 190000">
+        <img src="../assets/casina.svg" alt="" />
+      </b-col>
+      <b-col cols="auto" v-else-if="value < 340000">
+        <img src="../assets/casa.svg" alt="" />
+      </b-col>
+      <b-col cols="auto" v-else>
+        <img src="../assets/casona.svg" alt="" />
+      </b-col>
+    </b-row>
+    <b-row align-h="center">
       <b-row align-h="center">
-        <b-col cols="auto" v-if="value < 190000">
-          <img src="../assets/casina.svg" alt="" />
-        </b-col>
-        <b-col cols="auto" v-else-if="value < 340000">
-          <img src="../assets/casa.svg" alt="" />
-        </b-col>
-        <b-col cols="auto" v-else>
-          <img src="../assets/casona.svg" alt="" />
-        </b-col>
-      </b-row>
-      <b-row align-h="center">
-        <b-col cols="2"> min: 40.000 € </b-col>
-        <b-col cols="8">
+        <b-col cols="12">
           <b-form-input
             id="range-1"
             v-model="value"
@@ -40,33 +39,28 @@
             max="500000"
           ></b-form-input>
         </b-col>
-        <b-col cols="2"> max: 500.000 € </b-col>
       </b-row>
+      <b-row align-h="between">
+        <b-col cols="auto">Min: €40.000</b-col>
+        <b-col cols="auto">Max: €500.000</b-col>
+      </b-row>
+    </b-row>
 
-      <b-row class="nav-links" align-h="between">
-        <b-col cols="auto">
-          <router-link class="link" to="/">Indietro</router-link>
-        </b-col>
-        <b-col cols="auto">
-          <router-link class="link link-cta" to="/3a">Avanti</router-link>
-        </b-col>
-      </b-row>
-    </b-card>
-  </b-container>
+    <b-row class="nav-links" align-h="between">
+      <b-col cols="auto">
+        <router-link class="link" to="/">Indietro</router-link>
+      </b-col>
+      <b-col cols="auto">
+        <router-link class="link link-cta" to="/3a">Avanti</router-link>
+      </b-col>
+    </b-row>
+  </b-card>
 </template>
 
 <script>
-import {
-  BContainer,
-  BCol,
-  BRow,
-  BCard,
-  BFormInput,
-  BFormSpinbutton,
-} from "bootstrap-vue";
+import { BCol, BRow, BCard, BFormInput, BFormSpinbutton } from "bootstrap-vue";
 export default {
   components: {
-    BContainer,
     BCol,
     BRow,
     BCard,
@@ -83,12 +77,13 @@ export default {
 
 <style scoped>
 #range-1 {
-  color: #00b97f;
   width: 100%;
 }
 
 .card {
-  margin: 2rem 0;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
   border: none;
 }
 

@@ -1,34 +1,33 @@
 <template>
-  <b-container>
-    <b-card>
-      <b-card-text>
-        <b-row align-h="center">
-          <b-col cols="auto">Seleziona la durata del mutuo </b-col>
-        </b-row>
-      </b-card-text>
-      <b-row class="buttons-section" align-h="between">
-        <b-col class="item" cols="auto" v-for="item of items" :key="item">
-          <span>{{ item.number }}</span>
-          anni
+  <b-card>
+    <b-card-text>
+      <b-row align-h="center">
+        <b-col cols="auto">
+          <h3>Seleziona la durata del mutuo</h3>
         </b-col>
       </b-row>
-      <b-row class="nav-links" align-h="between">
-        <b-col cols="auto">
-          <router-link class="link" to="/3b">Indietro</router-link>
-        </b-col>
-        <b-col cols="auto">
-          <router-link class="link link-cta" to="/5">Avanti</router-link>
-        </b-col>
-      </b-row>
-    </b-card>
-  </b-container>
+    </b-card-text>
+    <b-row class="buttons-section" align-h="center">
+      <b-col class="item years" cols="auto" v-for="item of items" :key="item">
+        <span class="years-number">{{ item.number }}</span>
+        <span>anni</span>
+      </b-col>
+    </b-row>
+    <b-row class="nav-links" align-h="between">
+      <b-col cols="auto">
+        <router-link class="link" to="/3b">Indietro</router-link>
+      </b-col>
+      <b-col cols="auto">
+        <router-link class="link link-cta" to="/5">Avanti</router-link>
+      </b-col>
+    </b-row>
+  </b-card>
 </template>
 
 <script>
-import { BContainer, BCard, BCardText, BRow, BCol } from "bootstrap-vue";
+import { BCard, BCardText, BRow, BCol } from "bootstrap-vue";
 export default {
   components: {
-    BContainer,
     BCard,
     BCardText,
     BRow,
@@ -49,7 +48,18 @@ export default {
 </script>
 
 <style scoped>
-span {
+.card {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
+  border: none;
+}
+
+.years {
+  margin: 1rem;
+}
+
+.years-number {
   font-size: 2rem;
   font-weight: bold;
 }
